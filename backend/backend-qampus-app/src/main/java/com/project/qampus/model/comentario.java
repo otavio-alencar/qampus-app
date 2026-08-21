@@ -10,12 +10,12 @@ import org.hibernate.annotations.CreationTimestamp;
 import java.time.LocalDateTime;
 
 @Entity
-@Table(name = "answers")
+@Table(name = "comentarios")
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
 @Setter
-public class Answer {
+public class comentario {
 
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
@@ -25,11 +25,11 @@ public class Answer {
     private String content;
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "user_id", nullable = false)
+    @JoinColumn(name = "idUsuario", nullable = false)
     private User user;
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "post_id", nullable = false)
+    @JoinColumn(name = "idPost", nullable = false)
     private Post post;
 
     @CreationTimestamp

@@ -1,7 +1,7 @@
 package com.project.qampus.service;
 
 import com.project.qampus.dto.AnswerDTO;
-import com.project.qampus.model.Answer;
+import com.project.qampus.model.comentario;
 import com.project.qampus.model.Post;
 import com.project.qampus.model.User;
 import com.project.qampus.repositories.AnswerRepository;
@@ -21,7 +21,7 @@ public class AnswerService {
     private final PostRepository postRepository;
     private final UserRepository userRepository;
 
-    public Answer create(
+    public comentario create(
             String postId,
             AnswerDTO body,
             Authentication authentication
@@ -37,12 +37,12 @@ public class AnswerService {
                 .orElseThrow(() ->
                         new RuntimeException("Usuário não encontrado."));
 
-        Answer answer = new Answer();
+        comentario comentario = new comentario();
 
-        answer.setContent(body.content());
-        answer.setPost(post);
-        answer.setUser(user);
+        comentario.setContent(body.content());
+        comentario.setPost(post);
+        comentario.setUser(user);
 
-        return answerRepository.save(answer);
+        return answerRepository.save(comentario);
     }
 }

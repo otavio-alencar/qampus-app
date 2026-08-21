@@ -10,7 +10,7 @@ import lombok.Setter;
 
 
 @Entity
-@Table(name = "users")
+@Table(name = "usuario")
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
@@ -29,4 +29,8 @@ public class User {
 
     @Enumerated(EnumType.STRING)
     private Role role;
+
+    @Column(nullable = false)
+    private Integer reputacao = 0;
+
 }

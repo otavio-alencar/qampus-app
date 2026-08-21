@@ -1,6 +1,6 @@
 package com.project.qampus.dto;
 
-import com.project.qampus.model.Answer;
+import com.project.qampus.model.comentario;
 
 import java.time.LocalDateTime;
 
@@ -12,13 +12,13 @@ public record AnswerResponseDTO(
         LocalDateTime createdAt
 ) {
 
-    public static AnswerResponseDTO from(Answer answer) {
+    public static AnswerResponseDTO from(comentario comentario) {
         return new AnswerResponseDTO(
-                answer.getId(),
-                answer.getContent(),
-                answer.getUser().getId(),
-                answer.getPost().getId(),
-                answer.getCreatedAt()
+                comentario.getId(),
+                comentario.getContent(),
+                comentario.getUser().getId(),
+                comentario.getPost().getId(),
+                comentario.getCreatedAt()
         );
     }
 }

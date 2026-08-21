@@ -2,7 +2,7 @@ package com.project.qampus.controllers;
 
 import com.project.qampus.dto.AnswerDTO;
 import com.project.qampus.dto.AnswerResponseDTO;
-import com.project.qampus.model.Answer;
+import com.project.qampus.model.comentario;
 import com.project.qampus.model.Post;
 import com.project.qampus.model.User;
 import com.project.qampus.service.AnswerService;
@@ -20,7 +20,7 @@ import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 
 @ExtendWith(MockitoExtension.class)
-class AnswerControllerTest {
+class comentarioControllerTest {
 
     @Mock
     private AnswerService answerService;
@@ -37,16 +37,16 @@ class AnswerControllerTest {
     @InjectMocks
     private AnswerController answerController;
 
-    private Answer answer;
+    private comentario comentario;
 
     @BeforeEach
     void setUp() {
-        answer = new Answer();
+        comentario = new comentario();
 
-        answer.setId("answer-1");
-        answer.setContent("Esta é uma resposta válida.");
-        answer.setUser(user);
-        answer.setPost(post);
+        comentario.setId("answer-1");
+        comentario.setContent("Esta é uma resposta válida.");
+        comentario.setUser(user);
+        comentario.setPost(post);
     }
 
     @Test
@@ -62,7 +62,7 @@ class AnswerControllerTest {
                 postId,
                 answerDTO,
                 authentication
-        )).thenReturn(answer);
+        )).thenReturn(comentario);
 
         when(user.getId()).thenReturn("user-1");
         when(post.getId()).thenReturn(postId);
@@ -121,7 +121,7 @@ class AnswerControllerTest {
                 postId,
                 answerDTO,
                 authentication
-        )).thenReturn(answer);
+        )).thenReturn(comentario);
 
         when(user.getId()).thenReturn("user-1");
         when(post.getId()).thenReturn(postId);

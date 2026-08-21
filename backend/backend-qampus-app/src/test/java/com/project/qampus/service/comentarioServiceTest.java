@@ -1,7 +1,7 @@
 package com.project.qampus.service;
 
 import com.project.qampus.dto.AnswerDTO;
-import com.project.qampus.model.Answer;
+import com.project.qampus.model.comentario;
 import com.project.qampus.model.Post;
 import com.project.qampus.model.User;
 import com.project.qampus.repositories.AnswerRepository;
@@ -21,7 +21,7 @@ import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.*;
 
 @ExtendWith(MockitoExtension.class)
-class AnswerServiceTest {
+class comentarioServiceTest {
 
     @Mock
     private AnswerRepository answerRepository;
@@ -60,10 +60,10 @@ class AnswerServiceTest {
         when(userRepository.findByEmail("ana@qampus.com"))
                 .thenReturn(Optional.of(user));
 
-        when(answerRepository.save(any(Answer.class)))
+        when(answerRepository.save(any(comentario.class)))
                 .thenAnswer(invocation -> invocation.getArgument(0));
 
-        Answer result = answerService.create(
+        comentario result = answerService.create(
                 "post-1",
                 dto,
                 authentication
@@ -96,7 +96,7 @@ class AnswerServiceTest {
                 .findByEmail("ana@qampus.com");
 
         verify(answerRepository)
-                .save(any(Answer.class));
+                .save(any(comentario.class));
     }
 
     @Test
@@ -171,7 +171,7 @@ class AnswerServiceTest {
                 .findByEmail("inexistente@qampus.com");
 
         verify(answerRepository, never())
-                .save(any(Answer.class));
+                .save(any(comentario.class));
     }
 
     @Test
@@ -190,10 +190,10 @@ class AnswerServiceTest {
         when(userRepository.findByEmail("ana@qampus.com"))
                 .thenReturn(Optional.of(user));
 
-        when(answerRepository.save(any(Answer.class)))
+        when(answerRepository.save(any(comentario.class)))
                 .thenAnswer(invocation -> invocation.getArgument(0));
 
-        Answer result = answerService.create(
+        comentario result = answerService.create(
                 "post-1",
                 dto,
                 authentication
@@ -229,10 +229,10 @@ class AnswerServiceTest {
         when(userRepository.findByEmail("ana@qampus.com"))
                 .thenReturn(Optional.of(user));
 
-        when(answerRepository.save(any(Answer.class)))
+        when(answerRepository.save(any(comentario.class)))
                 .thenAnswer(invocation -> invocation.getArgument(0));
 
-        Answer result = answerService.create(
+        comentario result = answerService.create(
                 "post-1",
                 dto,
                 authentication
@@ -269,7 +269,7 @@ class AnswerServiceTest {
         );
 
         verify(answerRepository, never())
-                .save(any(Answer.class));
+                .save(any(comentario.class));
 
         verifyNoInteractions(
                 userRepository,
@@ -303,7 +303,7 @@ class AnswerServiceTest {
         );
 
         verify(answerRepository, never())
-                .save(any(Answer.class));
+                .save(any(comentario.class));
 
         verify(userRepository)
                 .findByEmail("unknown@qampus.com");

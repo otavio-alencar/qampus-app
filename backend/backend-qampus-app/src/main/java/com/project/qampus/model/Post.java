@@ -32,7 +32,7 @@ public class Post {
 
     @ManyToMany
     @JoinTable(
-            name = "posts_tags",
+            name = "tagPost",
             joinColumns = @JoinColumn(name = "post_id"),
             inverseJoinColumns = @JoinColumn(name = "tag_id")
     )

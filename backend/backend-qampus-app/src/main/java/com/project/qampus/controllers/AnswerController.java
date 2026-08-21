@@ -2,7 +2,7 @@ package com.project.qampus.controllers;
 
 import com.project.qampus.dto.AnswerDTO;
 import com.project.qampus.dto.AnswerResponseDTO;
-import com.project.qampus.model.Answer;
+import com.project.qampus.model.comentario;
 import com.project.qampus.service.AnswerService;
 
 import jakarta.validation.Valid;
@@ -29,7 +29,7 @@ public class AnswerController {
             @Valid @RequestBody AnswerDTO body,
             Authentication authentication) {
 
-        Answer answer = answerService.create(
+        comentario comentario = answerService.create(
                 postId,
                 body,
                 authentication
@@ -37,6 +37,6 @@ public class AnswerController {
 
         return ResponseEntity
                 .status(HttpStatus.CREATED)
-                .body(AnswerResponseDTO.from(answer));
+                .body(AnswerResponseDTO.from(comentario));
     }
 }
